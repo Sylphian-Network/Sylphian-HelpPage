@@ -1,0 +1,20 @@
+<xf:if is="$category.isInsert()">
+	<xf:title>{{ phrase('sylphian_help_add_category') }}</xf:title>
+<xf:else />
+	<xf:title>{{ phrase('sylphian_help_edit_category') }} {$category.title}</xf:title>
+</xf:if>
+
+<xf:form action="{{ link('help-pages/category-save', null, {'category_id': $category.category_id}) }}" ajax="true" class="block">
+	<div class="block-container">
+		<div class="block-body">
+			<xf:textboxrow name="title" value="{$category.title}"
+						   label="{{ phrase('title') }}"
+						   required="true" />
+
+			<xf:numberboxrow name="display_order" value="{$category.display_order}"
+							 label="{{ phrase('display_order') }}"
+							 min="0" step="1" />
+		</div>
+		<xf:submitrow icon="save" sticky="true" />
+	</div>
+</xf:form>

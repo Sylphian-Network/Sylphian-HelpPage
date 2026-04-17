@@ -1,0 +1,17 @@
+{
+    "admin/sylphian_help_page_edit_category.json": {
+        "hash": "e37de9e4a9722a7788281c9484d4d54d"
+    },
+    "admin/sylphian_help_page_list_grouping.json": {
+        "hash": "ebf95f961a4cbf0e8a50e2b29d104355"
+    },
+    "admin/sylphian_help_page_list_pageaction.json": {
+        "hash": "62e92b0e22cfe57f5445059ccb5ba9b6"
+    },
+    "public/sylphian_help_index_categories.json": {
+        "hash": "b9a87fe6548977efcba912f392aad186"
+    },
+    "public/sylphian_help_wrapper_categories.json": {
+        "hash": "2d78b20bcc4af566ad29d24c36da693e"
+    }
+}

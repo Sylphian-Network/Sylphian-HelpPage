@@ -1,0 +1,9 @@
+{
+    "template": "help_wrapper",
+    "description": "Group help pages in side nav by category.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "/<div class=\"block\">\\s*<div class=\"block-container\">\\s*<h2 class=\"block-header\">.*?<\\/h2>\\s*<div class=\"block-body\">\\s*<xf:foreach loop=\"\\$pages\" value=\"\\$page\">.*?<\\/xf:foreach>\\s*<\\/div>\\s*<\\/div>\\s*<\\/div>/s",
+    "replace": "<xf:if is=\"$groupedPages is not empty\">\n\t<xf:foreach loop=\"$groupedPages\" value=\"$group\">\n\t\t<xf:if is=\"$group.pages is not empty\">\n\t\t\t<div class=\"block\">\n\t\t\t\t<div class=\"block-container\">\n\t\t\t\t\t<h2 class=\"block-header\">\n\t\t\t\t\t\t<xf:if is=\"$group.category\">\n\t\t\t\t\t\t\t{$group.category.title}\n\t\t\t\t\t\t<xf:else />\n\t\t\t\t\t\t\t{{ phrase('sylphian_help_uncategorised') }}\n\t\t\t\t\t\t</xf:if>\n\t\t\t\t\t</h2>\n\t\t\t\t\t<div class=\"block-body\">\n\t\t\t\t\t\t<xf:foreach loop=\"$group.pages\" value=\"$page\">\n\t\t\t\t\t\t\t<xf:if is=\"($page.page_id == 'trophies' AND $xf.options.enableTrophies) OR $page.page_id != 'trophies'\">\n\t\t\t\t\t\t\t\t<a href=\"{$page.public_url}\" class=\"blockLink {{ $pageSelected == $page.page_name ? 'is-selected' : '' }}\">{$page.title}</a>\n\t\t\t\t\t\t\t</xf:if>\n\t\t\t\t\t\t</xf:foreach>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</xf:if>\n\t</xf:foreach>\n<xf:else />\n\t$0\n</xf:if>"
+}

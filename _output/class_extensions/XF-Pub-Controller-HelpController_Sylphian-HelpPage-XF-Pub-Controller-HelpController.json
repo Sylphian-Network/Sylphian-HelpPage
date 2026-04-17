@@ -1,0 +1,6 @@
+{
+    "from_class": "XF\\Pub\\Controller\\HelpController",
+    "to_class": "Sylphian\\HelpPage\\XF\\Pub\\Controller\\HelpController",
+    "execute_order": 10,
+    "active": true
+}

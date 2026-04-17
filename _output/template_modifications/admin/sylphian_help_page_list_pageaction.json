@@ -1,0 +1,9 @@
+{
+    "template": "help_page_list",
+    "description": "Add 'Add category' button to pageaction",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<xf:button href=\"{{ link('help-pages/add') }}\" icon=\"add\">{{ phrase('add_help_page') }}</xf:button>",
+    "replace": "$0\n<xf:button href=\"{{ link('help-pages/category-add') }}\" icon=\"add\">{{ phrase('sylphian_help_add_category') }}</xf:button>"
+}

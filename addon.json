@@ -1,0 +1,14 @@
+{
+    "legacy_addon_id": "",
+    "title": "Sylphian - Help Page",
+    "description": "Organise help pages easier using categories.",
+    "version_id": 1000010,
+    "version_string": "1.0.0 Alpha",
+    "dev": "QuackieMackie",
+    "dev_url": "https://github.com/QuackieMackie",
+    "faq_url": "",
+    "support_url": "https://github.com/Sylphian-Network/Sylphian-HelpPage/issues",
+    "extra_urls": [],
+    "require": [],
+    "icon": "fa-question-circle"
+}

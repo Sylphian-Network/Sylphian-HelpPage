@@ -1,0 +1,9 @@
+{
+    "template": "help_page_edit",
+    "description": "Add category selection",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "\t\t\t<xf:textboxrow name=\"description\" value=\"{$page}\"\n\t\t\t\treadonly=\"{{ !$page.canEdit() }}\"\n\t\t\t\tlabel=\"{{ phrase('description') }}\" />",
+    "replace": "$0\n\n\t\t\t<xf:selectrow name=\"sylphian_category_id\" value=\"{$page.sylphian_category_id}\"\n\t\t\t\tlabel=\"{{ phrase('sylphian_help_category') }}\">\n\t\t\t\t<xf:option value=\"0\">({{ phrase('none') }})</xf:option>\n\t\t\t\t<xf:options source=\"$categories\"/>\n\t\t\t</xf:selectrow>"
+}

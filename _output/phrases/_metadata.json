@@ -1,0 +1,26 @@
+{
+    "sylphian_help_add_category.txt": {
+        "global_cache": false,
+        "version_id": 1000010,
+        "version_string": "1.0.0 Alpha",
+        "hash": "3abd4b07c50c7ca7d319a77235f57c0d"
+    },
+    "sylphian_help_category.txt": {
+        "global_cache": false,
+        "version_id": 1000010,
+        "version_string": "1.0.0 Alpha",
+        "hash": "3adbdb3ac060038aa0e6e6c138ef9873"
+    },
+    "sylphian_help_edit_category.txt": {
+        "global_cache": false,
+        "version_id": 1000010,
+        "version_string": "1.0.0 Alpha",
+        "hash": "176bf027c77f1139b35c26a2b0641497"
+    },
+    "sylphian_help_uncategorised.txt": {
+        "global_cache": false,
+        "version_id": 1000010,
+        "version_string": "1.0.0 Alpha",
+        "hash": "671fdee4789681821d9457f232c83f2e"
+    }
+}
