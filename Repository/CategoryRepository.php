@@ -7,7 +7,7 @@ use XF\Mvc\Entity\AbstractCollection;
 use XF\Mvc\Entity\Finder;
 use XF\Mvc\Entity\Repository;
 
-class Category extends Repository
+class CategoryRepository extends Repository
 {
 	/**
 	 * @return Finder

@@ -2,7 +2,7 @@
 
 namespace Sylphian\HelpPage\XF\Pub\Controller;
 
-use Sylphian\HelpPage\Repository\Category;
+use Sylphian\HelpPage\Repository\CategoryRepository;
 use XF\Mvc\Reply\View;
 
 class HelpController extends XFCP_HelpController
@@ -16,7 +16,7 @@ class HelpController extends XFCP_HelpController
 			$pages = $reply->getParam('pages');
 			if ($pages)
 			{
-				$categoryRepo = $this->repository(Category::class);
+				$categoryRepo = $this->repository(CategoryRepository::class);
 				$reply->setParam('groupedPages', $categoryRepo->groupHelpPagesByCategory($pages));
 			}
 		}

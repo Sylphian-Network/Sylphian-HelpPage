@@ -2,7 +2,7 @@
 
 namespace Sylphian\HelpPage\XF\Admin\Controller;
 
-use Sylphian\HelpPage\Repository\Category;
+use Sylphian\HelpPage\Repository\CategoryRepository;
 use XF\ControllerPlugin\DeletePlugin;
 use XF\Entity\HelpPage;
 use XF\Mvc\ParameterBag;
@@ -17,7 +17,7 @@ class HelpPageController extends XFCP_HelpPageController
 		if ($reply instanceof View)
 		{
 			$pages = $reply->getParam('pages') ?: [];
-			$categoryRepo = $this->repository(Category::class);
+			$categoryRepo = $this->repository(CategoryRepository::class);
 
 			$reply->setParam('groupedPages', $categoryRepo->groupHelpPagesByCategory($pages));
 		}
@@ -31,7 +31,7 @@ class HelpPageController extends XFCP_HelpPageController
 
 		if ($reply instanceof View)
 		{
-			$categoryRepo = $this->repository(Category::class);
+			$categoryRepo = $this->repository(CategoryRepository::class);
 			$reply->setParam('categories', $categoryRepo->findCategoriesForList()->fetch()->pluckNamed('title', 'category_id'));
 		}
 
