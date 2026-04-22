@@ -49,4 +49,11 @@ class Category extends Entity
 
 		return $structure;
 	}
+
+	protected function _postDelete(): void
+	{
+		$this->db()->update('xf_help_page', [
+			'sylphian_category_id' => 0,
+		], 'sylphian_category_id = ?', $this->category_id);
+	}
 }
