@@ -2,6 +2,7 @@
 
 namespace Sylphian\HelpPage\XF\Admin\Controller;
 
+use Sylphian\HelpPage\Entity\Category;
 use Sylphian\HelpPage\Repository\CategoryRepository;
 use XF\ControllerPlugin\DeletePlugin;
 use XF\Entity\HelpPage;
@@ -49,7 +50,7 @@ class HelpPageController extends XFCP_HelpPageController
 		return $form;
 	}
 
-	protected function categoryAddEdit(\Sylphian\HelpPage\Entity\Category $category)
+	protected function categoryAddEdit(Category $category)
 	{
 		$viewParams = [
 			'category' => $category,
@@ -59,7 +60,7 @@ class HelpPageController extends XFCP_HelpPageController
 
 	public function actionCategoryAdd()
 	{
-		$category = $this->em()->create(\Sylphian\HelpPage\Entity\Category::class);
+		$category = $this->em()->create(Category::class);
 		return $this->categoryAddEdit($category);
 	}
 
@@ -70,7 +71,7 @@ class HelpPageController extends XFCP_HelpPageController
 		return $this->categoryAddEdit($category);
 	}
 
-	protected function categorySaveProcess(\Sylphian\HelpPage\Entity\Category $category)
+	protected function categorySaveProcess(Category $category)
 	{
 		$form = $this->formAction();
 
@@ -91,11 +92,11 @@ class HelpPageController extends XFCP_HelpPageController
 		$categoryId = $params['category_id'] ?? $this->filter('category_id', 'uint');
 		if ($categoryId)
 		{
-			$category = $this->assertCategoryExists($params['category_id']);
+			$category = $this->assertCategoryExists($categoryId);
 		}
 		else
 		{
-			$category = $this->em()->create(\Sylphian\HelpPage\Entity\Category::class);
+			$category = $this->em()->create(Category::class);
 		}
 
 		$form = $this->categorySaveProcess($category);
@@ -125,10 +126,10 @@ class HelpPageController extends XFCP_HelpPageController
 	 * @param array|string|null $with
 	 * @param string|null $phraseKey
 	 *
-	 * @return \Sylphian\HelpPage\Entity\Category
+	 * @return Category
 	 */
 	protected function assertCategoryExists(string $id, array|string|null $with = null, ?string $phraseKey = null)
 	{
-		return $this->assertRecordExists(\Sylphian\HelpPage\Entity\Category::class, $id, $with, $phraseKey);
+		return $this->assertRecordExists(Category::class, $id, $with, $phraseKey);
 	}
 }
