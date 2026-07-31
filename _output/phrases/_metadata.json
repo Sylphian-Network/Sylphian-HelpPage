@@ -11,6 +11,12 @@
         "version_string": "1.0.0 Alpha",
         "hash": "3adbdb3ac060038aa0e6e6c138ef9873"
     },
+    "sylphian_help_category_disabled_explain.txt": {
+        "global_cache": false,
+        "version_id": 1000052,
+        "version_string": "1.0.0 RC2",
+        "hash": "e629449c10464588a380c3357010e022"
+    },
     "sylphian_help_edit_category.txt": {
         "global_cache": false,
         "version_id": 1000010,
