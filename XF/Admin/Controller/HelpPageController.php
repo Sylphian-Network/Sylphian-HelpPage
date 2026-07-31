@@ -5,6 +5,7 @@ namespace Sylphian\HelpPage\XF\Admin\Controller;
 use Sylphian\HelpPage\Entity\Category;
 use Sylphian\HelpPage\Repository\CategoryRepository;
 use XF\ControllerPlugin\DeletePlugin;
+use XF\ControllerPlugin\TogglePlugin;
 use XF\Entity\HelpPage;
 use XF\Mvc\ParameterBag;
 use XF\Mvc\Reply\View;
@@ -78,6 +79,7 @@ class HelpPageController extends XFCP_HelpPageController
 		$input = $this->filter([
 			'title' => 'str',
 			'display_order' => 'uint',
+			'active' => 'bool',
 		]);
 
 		$form->basicEntitySave($category, $input);
@@ -103,6 +105,17 @@ class HelpPageController extends XFCP_HelpPageController
 		$form->run();
 
 		return $this->redirect($this->buildLink('help-pages'));
+	}
+
+	public function actionToggle()
+	{
+		$this->assertPostOnly();
+
+		/** @var TogglePlugin $plugin */
+		$plugin = $this->plugin(TogglePlugin::class);
+		$plugin->toggle(Category::class, 'active', ['input' => 'category_active']);
+
+		return parent::actionToggle();
 	}
 
 	public function actionCategoryDelete(ParameterBag $params)

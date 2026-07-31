@@ -10,21 +10,30 @@ use XF\Mvc\Entity\Repository;
 class CategoryRepository extends Repository
 {
 	/**
+	 * @param bool $activeOnly
 	 * @return Finder
 	 */
-	public function findCategoriesForList(): Finder
+	public function findCategoriesForList(bool $activeOnly = false): Finder
 	{
-		return $this->finder('Sylphian\HelpPage:Category')
+		$finder = $this->finder('Sylphian\HelpPage:Category')
 			->order('display_order');
+
+		if ($activeOnly)
+		{
+			$finder->where('active', 1);
+		}
+
+		return $finder;
 	}
 
 	/**
 	 * @param AbstractCollection|HelpPage[] $pages
+	 * @param bool $activeOnly
 	 * @return array
 	 */
-	public function groupHelpPagesByCategory(AbstractCollection|array $pages): array
+	public function groupHelpPagesByCategory(AbstractCollection|array $pages, bool $activeOnly = false): array
 	{
-		$categories = $this->findCategoriesForList()->fetch();
+		$categories = $this->findCategoriesForList($activeOnly)->fetch();
 		$grouped = [];
 
 		foreach ($categories AS $category)
@@ -45,7 +54,7 @@ class CategoryRepository extends Repository
 			{
 				$grouped[$categoryId]['pages'][] = $page;
 			}
-			else
+			else if (!$categoryId || !$activeOnly)
 			{
 				$uncategorised[] = $page;
 			}
