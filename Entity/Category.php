@@ -12,6 +12,7 @@ use XF\Mvc\Entity\Structure;
  * @property int|null $category_id
  * @property string $title
  * @property int $display_order
+ * @property bool $active
  *
  * RELATIONS
  * @property AbstractCollection|HelpPage[] $HelpPages
@@ -32,6 +33,7 @@ class Category extends Entity
 			'category_id' => ['type' => self::UINT, 'autoIncrement' => true, 'nullable' => true],
 			'title' => ['type' => self::STR, 'maxLength' => 100, 'required' => true],
 			'display_order' => ['type' => self::UINT, 'default' => 1],
+			'active' => ['type' => self::BOOL, 'default' => true],
 		];
 		$structure->getters = [
 			'id' => true,

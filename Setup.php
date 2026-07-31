@@ -23,6 +23,7 @@ class Setup extends AbstractSetup
 			$table->addColumn('title', 'varchar', 100);
 			$table->addColumn('description', 'text')->nullable();
 			$table->addColumn('display_order', 'int')->setDefault(1);
+			$table->addColumn('active', 'tinyint', 1)->setDefault(1);
 
 			$table->addPrimaryKey('category_id');
 		});
@@ -34,6 +35,14 @@ class Setup extends AbstractSetup
 		{
 			$table->addColumn('sylphian_category_id', 'int')->setDefault(0);
 			$table->addKey('sylphian_category_id');
+		});
+	}
+
+	public function upgrade1000052Step1(): void
+	{
+		$this->schemaManager()->alterTable('xf_sylphian_help_page_categories', function (Alter $table)
+		{
+			$table->addColumn('active', 'tinyint', 1)->setDefault(1);
 		});
 	}
 
